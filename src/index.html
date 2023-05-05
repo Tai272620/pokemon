@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+
+<body>
+    <h1 class="text-3xl font-bold underline">
+        POKEMON GAME
+    </h1>
+    <div id="container"
+        class="grid grid-cols-4 bg-red-100 border-2 border-black w-[700px] h-[700px] pl-[10px] pt-[10px] mx-auto">
+    </div>
+    <script>
+        let container = document.getElementById("container");
+        let img = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo77G8gDfEapxFn-eCsX6Cc8ZyrtgjWiBWqM05FR-vGMqQklm3woLDYbApIICt2aUG8oQ&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo77G8gDfEapxFn-eCsX6Cc8ZyrtgjWiBWqM05FR-vGMqQklm3woLDYbApIICt2aUG8oQ&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ53k0rKFYJC-DeR8dJAj6pFjLF60DKx0kOFZW5tau86q1UL4u9g_NnqWS6T-I9feJAIXA&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ53k0rKFYJC-DeR8dJAj6pFjLF60DKx0kOFZW5tau86q1UL4u9g_NnqWS6T-I9feJAIXA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYdTHOOr3hBVhgaGJ2_pKr_LGc-DOXFRMXt1OtwGtGTyMeqmDCJsWd3IW7wwEv9rHtCE&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYdTHOOr3hBVhgaGJ2_pKr_LGc-DOXFRMXt1OtwGtGTyMeqmDCJsWd3IW7wwEv9rHtCE&usqp=CAU",
+            "https://www.pkparaiso.com/shuffle/sprites/004.png", "https://www.pkparaiso.com/shuffle/sprites/004.png",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbF6zR8401ViimneD7l0365rykXg-Qydxo-_Ulvm-PLUk25dOmwAbU0j2CDZSbvD-V2cM&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbF6zR8401ViimneD7l0365rykXg-Qydxo-_Ulvm-PLUk25dOmwAbU0j2CDZSbvD-V2cM&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf4CIjQQFo8HGpu5Y0Qos_67qHvQ-__42OApx7KWVsq1hpJA34nPPZqENzqD4OiH-GJBQ&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf4CIjQQFo8HGpu5Y0Qos_67qHvQ-__42OApx7KWVsq1hpJA34nPPZqENzqD4OiH-GJBQ&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPwS7RiRz5Rht6DQpxIyPFPqr6dsKZ6f5gdMlUV5xY_hRjZxkFMkotBcvTk9Pxi7pXUvo&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPwS7RiRz5Rht6DQpxIyPFPqr6dsKZ6f5gdMlUV5xY_hRjZxkFMkotBcvTk9Pxi7pXUvo&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3AVk_JJeImkmcnzz7Pz7rluNfj_51tORliuMEDi4K0v2cmkYt44hoKy0urfziJn7BDB0&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3AVk_JJeImkmcnzz7Pz7rluNfj_51tORliuMEDi4K0v2cmkYt44hoKy0urfziJn7BDB0&usqp=CAU"
+        ];
+
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+
+                // Pick a remaining element.
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]];
+            }
+
+            return array;
+        }
+
+        shuffle(img);
+
+        img.forEach((url) => {
+            let img = document.createElement('img');
+            img.src = url;
+            img.classList.add("w-40");
+            img.classList.add("h-40");
+            img.classList.add("object-cover");
+            img.classList.add("border-2");
+            img.classList.add("border-black");
+            // console.log(url);
+            container.appendChild(img);
+        })
+    </script>
+</body>
+
+</html>
